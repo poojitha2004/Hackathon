@@ -1,0 +1,40 @@
+<h3>Menu</h3>
+
+<!-- Filters -->
+<div class="row mb-3">
+  <div class="col">
+    <label for="categorySelect" class="visually-hidden">Category</label>
+    <select id="categorySelect" class="form-select" [(ngModel)]="selectedCategory" aria-label="Category filter">
+      <option value="">All Categories</option>
+      <option value="Food">Food</option>
+      <option value="Drinks">Drinks</option>
+    </select>
+  </div>
+
+  <div class="col">
+    <label for="brandSelect" class="visually-hidden">Brand</label>
+    <select id="brandSelect" class="form-select" [(ngModel)]="selectedBrand" aria-label="Brand filter">
+      <option value="">All Brands</option>
+      <option value="Dominos">Dominos</option>
+      <option value="KFC">KFC</option>
+      <option value="CocaCola">CocaCola</option>
+      <option value="Britannia">Britannia</option>
+    </select>
+  </div>
+</div>
+
+<!-- Product List -->
+<div class="row">
+  <div class="col-md-3" *ngFor="let p of filteredProducts">
+    <div class="card p-3 shadow mb-3 text-center">
+      <h5>{{p.name}}</h5>
+      <p>Brand: {{p.brand}}</p>
+      <p>Pack: {{p.packaging}}</p>
+      <p class="text-success">₹ {{p.price}}</p>
+
+      <button class="btn btn-success" (click)="addToCart(p)">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>

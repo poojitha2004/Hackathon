@@ -1,0 +1,74 @@
+<h3>Checkout</h3>
+
+<!-- CART SUMMARY -->
+<div *ngIf="cart.length > 0">
+
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Qty</th>
+      <th>Price</th>
+    </tr>
+
+    <tr *ngFor="let item of cart">
+      <td>{{item.name}}</td>
+      <td>{{item.qty}}</td>
+      <td>{{item.price}}</td>
+    </tr>
+  </table>
+
+  <h5>Total: ₹ {{
+    cart.reduce((sum, item) => sum + item.price * item.qty, 0)
+  }}</h5>
+
+  <hr>
+
+  <!-- USER DETAILS -->
+  <h4>Enter Details</h4>
+
+  <input class="form-control mb-2" [(ngModel)]="user.name" placeholder="Full Name">
+  <input class="form-control mb-2" [(ngModel)]="user.address" placeholder="Address">
+
+  <select class="form-control mb-3" [(ngModel)]="user.payment" title="Payment mode">
+    <option value="COD">PaymentMode</option>
+    <option value="Card">cash on delivery</option>
+    <option value="UPI">UPI</option>
+  </select>
+
+  <button class="btn btn-success" (click)="placeOrder()">
+    Place Order
+  </button>
+
+</div>
+
+<!-- ORDER HISTORY -->
+<hr>
+<hr>
+
+<h3>Order History</h3>
+
+<div *ngFor="let order of orders" class="card p-3 mb-3 shadow-sm">
+
+  <h5>Order ID: {{order.id}}</h5>
+
+  <p><b>Name:</b> {{order.user?.name}}</p>
+  <p><b>Address:</b> {{order.user?.address}}</p>
+  <p><b>Payment:</b> {{order.user?.payment}}</p>
+
+  <table class="table table-sm">
+    <tr>
+      <th>Item</th>
+      <th>Qty</th>
+      <th>Price</th>
+    </tr>
+
+    <tr *ngFor="let item of order.items">
+      <td>{{item.name}}</td>
+      <td>{{item.qty}}</td>
+      <td>{{item.price}}</td>
+    </tr>
+  </table>
+
+  <h6 class="text-success">Total: ₹ {{order.total}}</h6>
+
+</div>

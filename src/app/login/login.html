@@ -1,0 +1,41 @@
+<div class="login-container">
+
+  <!-- LEFT SIDE (WELCOME) -->
+  <div class="login-left">
+    <h1>Welcome to RetailApp 🛒</h1>
+
+    <p>
+      Order your favorite food, drinks, and essentials in seconds.
+      Fast delivery. Easy checkout. Smart shopping.
+    </p>
+
+    <ul>
+      <li>🍕 Browse products & categories</li>
+      <li>🛒 Add items to cart</li>
+      <li>⚡ Quick checkout</li>
+      <li>📦 Track your orders</li>
+    </ul>
+  </div>
+
+  <!-- RIGHT SIDE (LOGIN FORM) -->
+  <div class="login-right">
+
+    <div class="card login-card">
+      <h3>Login</h3>
+
+      <input [(ngModel)]="user.email" placeholder="Enter Email">
+      <input [(ngModel)]="user.password" type="password" placeholder="Enter Password">
+
+      <button class="btn-primary w-100" (click)="login()">
+        Login
+      </button>
+
+      <p class="small-text">
+        Demo App – No real authentication required
+      </p>
+
+    </div>
+
+  </div>
+
+</div>

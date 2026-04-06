@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background: #2874f0;
+  color: white;
+  padding: 10px;
+}
+
+.navbar a {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}

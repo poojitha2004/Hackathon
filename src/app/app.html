@@ -1,0 +1,14 @@
+<nav *ngIf="showNavbar" class="navbar">
+  <span>RetailApp</span>
+
+  <div>
+    <a (click)="go('products')">Products</a>
+    <a (click)="go('cart')">Cart</a>
+    <a (click)="go('orders')">Orders</a>
+    <a (click)="logout()">Logout</a>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
