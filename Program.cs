@@ -10,9 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // 🔹 1. Add DbContext (SQL Server)
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")));
-
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
+    ));
 // 🔹 2. Add Controllers
 builder.Services.AddControllers();
 
